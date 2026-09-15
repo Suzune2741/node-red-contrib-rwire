@@ -1,7 +1,7 @@
 <script type="text/javascript">
     RED.nodes.registerType('wlan', {
         category: 'wlan-Node',
-        color: "#ffe3a6",
+        color: "#5bc0de",
         defaults: {
             name: { value: "" },
             mode: { value: "STA"},
@@ -10,7 +10,7 @@
         },
         inputs: 1,
         outputs: 0,
-        icon: "light.svg",
+        icon: "wlan.svg",
         align: "right",
         label: function () {
             return this.name || "wlan";
