@@ -1,13 +1,14 @@
 {
     "name" : "node-red-contrib-wlan",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "repository": {
         "type": "git",
         "url": "https://github.com/Suzune2741/node-red-contrib-wlan"
     },
     "node-red" : {
         "nodes": {
-            "lower-case": "wlan.js"
+            "wlan": "wlan.js",
+            "thermistor": "thermistor.js"
         }
     }
 }

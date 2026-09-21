@@ -1,0 +1,62 @@
+<script type="text/javascript">
+    RED.nodes.registerType('thermistor', {
+        category: 'wlan-Node', 
+        color: "#E2D96E", // 温度センサっぽい黄色系の色
+        defaults: {
+            name: { value: "" },
+            bConst: { value: 3435.0, required: true, validate: RED.validators.number() },
+            toTemp: { value: 25.0, required: true, validate: RED.validators.number() },
+            vcc: { value: 3300.0, required: true, validate: RED.validators.number() },
+            rRef: { value: 10.0, required: true, validate: RED.validators.number() }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "font-awesome/fa-thermometer-half", // 温度計アイコン
+        align: "left",
+        label: function () {
+            return this.name || "サーミスタ温度計算";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="thermistor">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> 名前</label>
+        <input type="text" id="node-input-name" placeholder="名前">
+    </div>
+    <hr>
+    <div class="form-row">
+        <label for="node-input-bConst"><i class="fa fa-cog"></i> B定数</label>
+        <input type="text" id="node-input-bConst" style="width: 150px;">
+    </div>
+    <div class="form-row">
+        <label for="node-input-toTemp"><i class="fa fa-thermometer-half"></i> 基準温度(℃)</label>
+        <input type="text" id="node-input-toTemp" style="width: 150px;">
+    </div>
+    <div class="form-row">
+        <label for="node-input-vcc"><i class="fa fa-bolt"></i> 電源電圧(mV)</label>
+        <input type="text" id="node-input-vcc" style="width: 150px;">
+    </div>
+    <div class="form-row">
+        <label for="node-input-rRef"><i class="fa fa-microchip"></i> 基準抵抗(kΩ)</label>
+        <input type="text" id="node-input-rRef" style="width: 150px;">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="thermistor">
+    <p>ADCの電圧値(V)を入力し、サーミスタの温度(℃)に変換して出力するノードです。</p>
+    
+    <h3>入力</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">number</span></dt>
+        <dd>ADCから取得した生電圧値（単位: V）を <code>msg.payload</code> に入れてノードに渡します。</dd>
+    </dl>
+    
+    <h3>出力</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">number</span></dt>
+        <dd>計算された<b>温度(℃)</b>が出力されます。</dd>
+        <dt>voltage_mV <span class="property-type">number</span></dt>
+        <dd>参考値として、mVに変換された計算前の電圧値も一緒に出力されます。</dd>
+    </dl>
+</script>
