@@ -4,6 +4,7 @@
         color: "#E2D96E", // 温度センサっぽい黄色系の色
         defaults: {
             name: { value: "" },
+            device: {value:""},
             bConst: { value: 3435.0, required: true, validate: RED.validators.number() },
             toTemp: { value: 25.0, required: true, validate: RED.validators.number() },
             vcc: { value: 3300.0, required: true, validate: RED.validators.number() },
@@ -24,22 +25,31 @@
         <label for="node-input-name"><i class="fa fa-tag"></i> 名前</label>
         <input type="text" id="node-input-name" placeholder="名前">
     </div>
-    <hr>
     <div class="form-row">
-        <label for="node-input-bConst"><i class="fa fa-cog"></i> B定数</label>
-        <input type="text" id="node-input-bConst" style="width: 150px;">
+        <label for="node-input-device"><i class="fa fa-microchip"></i> デバイス名</label>
+        <input type="text" id="node-input-device" placeholder="例: test">
     </div>
-    <div class="form-row">
-        <label for="node-input-toTemp"><i class="fa fa-thermometer-half"></i> 基準温度(℃)</label>
-        <input type="text" id="node-input-toTemp" style="width: 150px;">
-    </div>
-    <div class="form-row">
-        <label for="node-input-vcc"><i class="fa fa-bolt"></i> 電源電圧(mV)</label>
-        <input type="text" id="node-input-vcc" style="width: 150px;">
-    </div>
-    <div class="form-row">
-        <label for="node-input-rRef"><i class="fa fa-microchip"></i> 基準抵抗(kΩ)</label>
-        <input type="text" id="node-input-rRef" style="width: 150px;">
+    <div class="form-row" style="margin-top: 20px;">
+        <details style="border: 1px solid #ccc; border-radius: 4px; padding: 8px; background: #fafafa;">
+            <div style="margin-top: 15px;">
+                <div class="form-row">
+                    <label for="node-input-bConst"><i class="fa fa-cog"></i> B定数</label>
+                    <input type="text" id="node-input-bConst" style="width: 150px;">
+                </div>
+                <div class="form-row">
+                    <label for="node-input-toTemp"><i class="fa fa-thermometer-half"></i> 基準温度(℃)</label>
+                    <input type="text" id="node-input-toTemp" style="width: 150px;">
+                </div>
+                <div class="form-row">
+                    <label for="node-input-vcc"><i class="fa fa-bolt"></i> 電源電圧(mV)</label>
+                    <input type="text" id="node-input-vcc" style="width: 150px;">
+                </div>
+                <div class="form-row">
+                    <label for="node-input-rRef"><i class="fa fa-microchip"></i> 基準抵抗(kΩ)</label>
+                    <input type="text" id="node-input-rRef" style="width: 150px;">
+                </div>
+            </div>
+        </details>
     </div>
 </script>
 
